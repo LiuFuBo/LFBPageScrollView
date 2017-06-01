@@ -16,7 +16,7 @@
 		65BFBD281EDE5F290082680A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65BFBD261EDE5F290082680A /* LaunchScreen.storyboard */; };
 		65BFBD331EDE5F290082680A /* ____Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 65BFBD321EDE5F290082680A /* ____Tests.m */; };
 		65BFBD3E1EDE5F290082680A /* ____UITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 65BFBD3D1EDE5F290082680A /* ____UITests.m */; };
-		65BFBD4E1EDE60D40082680A /* LFBPagingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 65BFBD4D1EDE60D40082680A /* LFBPagingView.m */; };
+		65DAC6001EE0145500407800 /* LFBPagingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 65DAC5FF1EE0145500407800 /* LFBPagingView.m */; };
 		9CFD33D0507A0C4F6DA95F26 /* libPods-分页滚动Tests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B5EA37C6344A6193CFF97591 /* libPods-分页滚动Tests.a */; };
 		DEB809CE9611DE74705AEEF1 /* libPods-分页滚动.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F84FC07D23056048CA85732 /* libPods-分页滚动.a */; };
 /* End PBXBuildFile section */
@@ -61,8 +61,8 @@
 		65BFBD391EDE5F290082680A /* 分页滚动UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "分页滚动UITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		65BFBD3D1EDE5F290082680A /* ____UITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "____UITests.m"; sourceTree = "<group>"; };
 		65BFBD3F1EDE5F290082680A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		65BFBD4C1EDE60D40082680A /* LFBPagingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LFBPagingView.h; sourceTree = "<group>"; };
-		65BFBD4D1EDE60D40082680A /* LFBPagingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LFBPagingView.m; sourceTree = "<group>"; };
+		65DAC5FE1EE0145500407800 /* LFBPagingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LFBPagingView.h; sourceTree = "<group>"; };
+		65DAC5FF1EE0145500407800 /* LFBPagingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LFBPagingView.m; sourceTree = "<group>"; };
 		B5EA37C6344A6193CFF97591 /* libPods-分页滚动Tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-分页滚动Tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3F89E8C5E0DB916964F9408 /* Pods-分页滚动.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-分页滚动.release.xcconfig"; path = "Pods/Target Support Files/Pods-分页滚动/Pods-分页滚动.release.xcconfig"; sourceTree = "<group>"; };
 		D6731AC9609A8E6DDF52A03D /* Pods-分页滚动Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-分页滚动Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-分页滚动Tests/Pods-分页滚动Tests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -99,6 +99,7 @@
 		65BFBD0C1EDE5F290082680A = {
 			isa = PBXGroup;
 			children = (
+				65DAC5FD1EE0145500407800 /* LFBPagingView */,
 				65BFBD171EDE5F290082680A /* 分页滚动 */,
 				65BFBD311EDE5F290082680A /* 分页滚动Tests */,
 				65BFBD3C1EDE5F290082680A /* 分页滚动UITests */,
@@ -121,7 +122,6 @@
 		65BFBD171EDE5F290082680A /* 分页滚动 */ = {
 			isa = PBXGroup;
 			children = (
-				65BFBD4B1EDE60BA0082680A /* LFBPagingView */,
 				65BFBD1B1EDE5F290082680A /* AppDelegate.h */,
 				65BFBD1C1EDE5F290082680A /* AppDelegate.m */,
 				65BFBD1E1EDE5F290082680A /* ViewController.h */,
@@ -161,11 +161,11 @@
 			path = "分页滚动UITests";
 			sourceTree = "<group>";
 		};
-		65BFBD4B1EDE60BA0082680A /* LFBPagingView */ = {
+		65DAC5FD1EE0145500407800 /* LFBPagingView */ = {
 			isa = PBXGroup;
 			children = (
-				65BFBD4C1EDE60D40082680A /* LFBPagingView.h */,
-				65BFBD4D1EDE60D40082680A /* LFBPagingView.m */,
+				65DAC5FE1EE0145500407800 /* LFBPagingView.h */,
+				65DAC5FF1EE0145500407800 /* LFBPagingView.m */,
 			);
 			path = LFBPagingView;
 			sourceTree = "<group>";
@@ -476,7 +476,7 @@
 				65BFBD201EDE5F290082680A /* ViewController.m in Sources */,
 				65BFBD1D1EDE5F290082680A /* AppDelegate.m in Sources */,
 				65BFBD1A1EDE5F290082680A /* main.m in Sources */,
-				65BFBD4E1EDE60D40082680A /* LFBPagingView.m in Sources */,
+				65DAC6001EE0145500407800 /* LFBPagingView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
