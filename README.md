@@ -14,7 +14,7 @@ LFBPageScrollView
  
 #如何使用LFBPageScrollView ?
 
- 你可以通过Cocoapods来直接导入：
+ 你可以通过Cocoapods来直接导入：<br>
  pod ‘LFBPageScrollView’, :git =>’https://github.com/LiuFuBo1991/LFBPageScrollView.git’
  
  还可以直接将LFBPagingView文件夹拖进您的项目中并且通过Cocoapods导入Masonry就可以使用了
