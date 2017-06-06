@@ -7,12 +7,12 @@ LFBPageScrollView
 当前框架是为了给有点击标题滑动页面需求的开发人员提供一个方便快捷的工具类，代码已经进行了深度封装，您只需要将框架导入到项目中，并且实现对应的代理方法就行。
 
 
-#什么是LFBPageScrollView ?
+ # 什么是LFBPageScrollView 
 
  先给大家看一下效果展示图
 ![](https://github.com/LiuFuBo1991/LFBPageScrollView/raw/master/LFBPagingView/Resources/effect.gif)
  
-#如何使用LFBPageScrollView ?
+ # 如何使用LFBPageScrollView 
 
  你可以通过Cocoapods来直接导入：<br>
  pod ‘LFBPageScrollView’, :git =>’https://github.com/LiuFuBo1991/LFBPageScrollView.git’
