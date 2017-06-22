@@ -6,7 +6,9 @@ Pod::Spec.new do |s|
   s.name         = "LFBPageScrollView"  #名字
   s.version      = "1.0.1"  #版本号
   s.summary      = "这是一个用于标题点击页面滚动的框架" #简介
-  
+  s.description = <<-DESC
+  A framework about the rolling of the page.
+ DESC
   
   s.homepage     = "https://github.com/LiuFuBo1991"
   #这里要填写可以访问的地址，不然验证通不过
