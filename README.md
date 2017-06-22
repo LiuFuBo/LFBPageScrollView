@@ -10,7 +10,7 @@ LFBPageScrollView
  ## 什么是LFBPageScrollView 
 
  先给大家看一下效果展示图<br>
-![image](https://github.com/LiuFuBo1991//LFBPageScrollView/blob/master/LFBPageScrollView/分页滚动/Resources/effects.gif)
+![image](https://github.com/LiuFuBo1991/LFBPageScrollView/blob/master/LFBPageScrollView/分页滚动/Resources/effects.gif)
  
  ## 如何使用LFBPageScrollView 
 
