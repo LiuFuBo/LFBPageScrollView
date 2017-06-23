@@ -12,7 +12,7 @@
 static NSString *const TableViewCellIdentifier = @"TableViewCellIdentifier";
 @interface ViewController ()<LFBPageingViewDelegate>
 @property (nonatomic, strong) NSMutableArray *dataSources;
-
+@property (nonatomic, strong) LFBPagingView *pageView;
 @end
 
 @implementation ViewController
@@ -24,9 +24,13 @@ static NSString *const TableViewCellIdentifier = @"TableViewCellIdentifier";
 }
 
 - (void)initWithData{
-
-    [_dataSources addObjectsFromArray:@[@"张三",@"李四",@"王麻子",@"张瘸子",@"小包子"]];
-
+    [self.dataSources addObjectsFromArray:@[@"张三",@"李四",@"王麻子",@"张瘸子",@"小包子"]];
+   [self.pageView.tableArray enumerateObjectsUsingBlock:^(UITableView  *_Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+       if (idx == 1) {
+           [obj reloadData];
+           *stop = YES;
+       }
+   }];
 }
 
 - (void)initAppearances{
@@ -34,11 +38,7 @@ static NSString *const TableViewCellIdentifier = @"TableViewCellIdentifier";
     self.title = @"分页滚动";
     self.view.backgroundColor = [UIColor whiteColor];
     self.automaticallyAdjustsScrollViewInsets = NO;
-    LFBPagingView *pageView = [[LFBPagingView alloc]init];
-    pageView.frame = CGRectMake(0, 64, self.view.bounds.size.width, self.view.bounds.size.height-64);
-    pageView.titleArray = [NSMutableArray arrayWithArray:@[@"按次",@"按日"]];
-    pageView.lfb_delegate = self;
-    [self.view addSubview:pageView];
+    [self.view addSubview:self.pageView];
     
 }
 
@@ -52,7 +52,7 @@ static NSString *const TableViewCellIdentifier = @"TableViewCellIdentifier";
     if (tableView.tag == 200) {
         return 5;
     }else{
-      return 8;
+        return _dataSources.count;
     }
 }
 
@@ -62,14 +62,34 @@ static NSString *const TableViewCellIdentifier = @"TableViewCellIdentifier";
 }
 
 -(UITableViewCell *)lfb_tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-
+ 
+    if (tableView.tag == 200) {
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:TableViewCellIdentifier];
+        if (!cell) {
+            cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:TableViewCellIdentifier];
+        }
+         cell.textLabel.text = @"哈哈";
+        return cell;
+    }
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:TableViewCellIdentifier];
     if (!cell) {
         cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:TableViewCellIdentifier];
     }
-    cell.textLabel.text = @"哈哈";
+        cell.textLabel.text = _dataSources[indexPath.row];
     return cell;
 
+}
+
+
+- (LFBPagingView *)pageView{
+
+    return _pageView?:({
+        _pageView = [LFBPagingView new];
+        _pageView.frame = CGRectMake(0, 64, self.view.bounds.size.width, self.view.bounds.size.height-64);
+        _pageView.titleArray = [NSMutableArray arrayWithArray:@[@"按次",@"按日"]];
+        _pageView.lfb_delegate = self;
+        _pageView;
+    });
 }
 
 - (NSMutableArray *)dataSources{
@@ -79,11 +99,6 @@ static NSString *const TableViewCellIdentifier = @"TableViewCellIdentifier";
         _dataSources;
     });
 }
-
-
-
-
-
 
 
 

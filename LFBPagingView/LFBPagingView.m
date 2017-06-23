@@ -72,7 +72,6 @@
         selectButton.bounds = CGRectMake(0, 0,buttonWidth, buttonHeight);
         selectButton.center = CGPointMake((index + 0.5)*buttonWidth, 21);
         selectButton.tag = index + 100;
-        selectButton.backgroundColor = [UIColor colorWithRed:ArcRandom/255.0f green:ArcRandom/255.0f blue:ArcRandom/255.0f alpha:1];
         [selectButton setTitle:_titleArray[index] forState:UIControlStateNormal];
         [selectButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
         [selectButton setTitleColor:[UIColor redColor] forState:UIControlStateSelected];
@@ -82,7 +81,6 @@
         //遍历添加tableView
         CGFloat offsetX = index * ScreenWidth;
         UITableView *tableView = [[UITableView alloc]initWithFrame:CGRectMake(offsetX, 0, ScreenWidth, self.bounds.size.height-44) style:UITableViewStylePlain];
-        tableView.backgroundColor = [UIColor colorWithRed:ArcRandom/255.0f green:ArcRandom/255.0f blue:ArcRandom/255.0f alpha:1];
         tableView.delegate = self;
         tableView.dataSource= self;
         tableView.showsVerticalScrollIndicator = NO;
@@ -105,6 +103,10 @@
 #pragma mark - p button click methods
 - (void)respondsToSelectButton:(UIButton *)sender{
 
+    //返回当前选中的标题下标
+    if (self.lfb_delegate && [self.lfb_delegate respondsToSelector:@selector(lfb_selectTableViewIndex:)]) {
+        [self.lfb_delegate lfb_selectTableViewIndex:sender.tag - 100];
+    }
     CGFloat buttonWidth = ScreenWidth/_titleArray.count;
     //再次遍历判断是哪个按钮被选中
     for (int index = 0; index<_titleArray.count; ++index) {
@@ -143,6 +145,13 @@
 
     return [self.lfb_delegate lfb_tableView:tableView cellForRowAtIndexPath:indexPath];
 }
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+
+    return [self.lfb_delegate lfb_tableView:tableView didSelectRowAtIndexPath:indexPath];
+}
+
+
 
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView{
 
@@ -197,6 +206,9 @@
             
             for (int i = 0; i< _titleArray.count; ++i) {
                 if (index + 1 == i) {
+                    if (self.lfb_delegate && [self.lfb_delegate respondsToSelector:@selector(lfb_selectTableViewIndex:)]) {
+                        [self.lfb_delegate lfb_selectTableViewIndex:index+1];
+                    }
                     UIButton *button = [self viewWithTag:index + 101];
                     [button setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
                     [UIView animateWithDuration:0.5 animations:^{
@@ -212,6 +224,9 @@
          
             for (int i = 0; i< _titleArray.count; ++i) {
                 if (index == i) {
+                    if (self.lfb_delegate && [self.lfb_delegate respondsToSelector:@selector(lfb_selectTableViewIndex:)]) {
+                        [self.lfb_delegate lfb_selectTableViewIndex:index];
+                    }
                     UIButton *button = [self viewWithTag:index + 100];
                     [button setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
                     [UIView animateWithDuration:0.5 animations:^{
