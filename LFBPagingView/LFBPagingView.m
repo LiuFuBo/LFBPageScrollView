@@ -34,6 +34,7 @@
     if (self) {
         [self initSubviews];
         [self initLayout];
+        [self setdividerLine];
     }
     return self;
 }
@@ -81,6 +82,13 @@
         //遍历添加tableView
         CGFloat offsetX = index * ScreenWidth;
         UITableView *tableView = [[UITableView alloc]initWithFrame:CGRectMake(offsetX, 0, ScreenWidth, self.bounds.size.height-44) style:UITableViewStylePlain];
+        
+        if ([tableView respondsToSelector:@selector(setSeparatorInset:)]) {
+            [tableView setSeparatorInset:UIEdgeInsetsZero];
+        }
+        if ([tableView respondsToSelector:@selector(setLayoutMargins:)]) {
+            [tableView setLayoutMargins:UIEdgeInsetsZero];
+        }
         tableView.delegate = self;
         tableView.dataSource= self;
         tableView.showsVerticalScrollIndicator = NO;
@@ -151,7 +159,15 @@
     return [self.lfb_delegate lfb_tableView:tableView didSelectRowAtIndexPath:indexPath];
 }
 
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
 
+    if ([cell respondsToSelector:@selector(setSeparatorInset:)]) {
+        [cell setSeparatorInset:UIEdgeInsetsZero];
+    }
+    if ([cell respondsToSelector:@selector(setLayoutMargins:)]) {
+        [cell setLayoutMargins:UIEdgeInsetsZero];
+    }
+}
 
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView{
 
@@ -264,6 +280,13 @@
     });
 }
 
+- (void)setdividerLine{
+    
+    UIView *lineView = [UIView new];
+    lineView.backgroundColor = [UIColor colorWithRed:216/255.0f green:216/255.0f blue:216/255.0f alpha:1];
+    lineView.frame = CGRectMake(0, 43, ScreenWidth, 1);
+    [self addSubview:lineView];
+}
 
 - (NSMutableArray *)tableArray{
 
