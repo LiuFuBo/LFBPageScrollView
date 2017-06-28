@@ -21,7 +21,7 @@ LFBPageScrollView
 
  LFBPageScrollView目前已经支持通过cocoaPods进行导入，你只需要通过终端输入以下命令:
 
- pod search LFBPageScrollView --simple
+ pod search LFBPageScrollView 
 
  就可以查询到该框架，然后选择相应版本，导入您的项目中就可以了
  
