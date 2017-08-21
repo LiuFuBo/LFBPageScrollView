@@ -101,8 +101,8 @@
     //设置选中下划线的位置
     _selectView = [UIView new];
     _selectView.backgroundColor = [UIColor redColor];
-    _selectView.bounds = CGRectMake(0, 0, buttonWidth, 2);
-    _selectView.center = CGPointMake(buttonWidth/2, 43);
+    _selectView.bounds = CGRectMake(0, 0, buttonWidth - 28, 3);
+    _selectView.center = CGPointMake(buttonWidth/2, 42);
     _selectView.layer.cornerRadius = 1;
     _selectView.layer.masksToBounds = YES;
     [_titleView addSubview:_selectView];
@@ -122,7 +122,7 @@
         if (sender.tag == index + 100) {
             [sender setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
             [UIView animateWithDuration:0.5 animations:^{
-                 _selectView.center = CGPointMake((index + 0.5) * buttonWidth, 43);
+                 _selectView.center = CGPointMake((index + 0.5) * buttonWidth, 42);
                 _scrollView.contentOffset = CGPointMake(index *ScreenWidth, 0);
             }];
         }else{
@@ -188,7 +188,7 @@
                 UIButton *button = [self viewWithTag:index + 101];
                 [button setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
                 [UIView animateWithDuration:0.5 animations:^{
-                    _selectView.center = CGPointMake((index + 0.5 + 1) * buttonWidth, 43);
+                    _selectView.center = CGPointMake((index + 0.5 + 1) * buttonWidth, 42);
                 }];
             }else{
                 //设置没有被选中的按钮标题颜色
@@ -202,7 +202,7 @@
                 UIButton *button = [self viewWithTag:index + 100];
                 [button setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
                 [UIView animateWithDuration:0.5 animations:^{
-                    _selectView.center = CGPointMake((index + 0.5) * buttonWidth, 43);
+                    _selectView.center = CGPointMake((index + 0.5) * buttonWidth, 42);
                 }];
             }else{
                 //设置没有被选中的按钮标题颜色
@@ -228,7 +228,7 @@
                     UIButton *button = [self viewWithTag:index + 101];
                     [button setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
                     [UIView animateWithDuration:0.5 animations:^{
-                        _selectView.center = CGPointMake((index + 0.5 + 1) * buttonWidth, 43);
+                        _selectView.center = CGPointMake((index + 0.5 + 1) * buttonWidth, 42);
                     }];
                 }else{
                     //设置没有被选中的按钮标题颜色
@@ -246,7 +246,7 @@
                     UIButton *button = [self viewWithTag:index + 100];
                     [button setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
                     [UIView animateWithDuration:0.5 animations:^{
-                        _selectView.center = CGPointMake((index + 0.5) * buttonWidth, 43);
+                        _selectView.center = CGPointMake((index + 0.5) * buttonWidth, 42);
                     }];
                 }else{
                     //设置没有被选中的按钮标题颜色
